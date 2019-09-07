@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/07 17:01:29 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/07 18:38:18 by mwilbur          ###   ########.fr       */
+/*   Created: 2019/09/07 18:40:43 by mwilbur           #+#    #+#             */
+/*   Updated: 2019/09/07 18:59:59 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void	*restrict dst, void	*restrict src, size_t n)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	size_t			i;
-	unsigned char	*s;
-	unsigned char	*d;
+	int i;
+	int j;
 
-	d = (unsigned char*)dst;
-	s = (unsigned char*)s;
 	i = 0;
-	while (i < n && d[i] && s[i])
-	{
-		d[i] = s[i];
+	j = 0;
+	while (s1[i])
 		i++;
+	while (s2[j])
+	{
+		s1[i] = s2[j];
+		i++;
+		j++;
 	}
-	return (dst);
+	s1[i] = '\0';
+	return (s1);
 }
