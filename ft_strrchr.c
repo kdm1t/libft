@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/07 19:38:02 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/08 16:37:39 by mwilbur          ###   ########.fr       */
+/*   Created: 2019/09/08 18:02:04 by mwilbur           #+#    #+#             */
+/*   Updated: 2019/09/08 18:15:26 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	size_t i;
-	size_t j;
+	char *lp;
 
-	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	while (s2[j] && j < n)
+	lp = NULL;
+	while (*s != '\0')
 	{
-		s1[i] = s2[j];
-		j++;
+		if (*s == c)
+			lp = (char*)s;
+		s++;
 	}
-	s1[i] = '\0';
-	return (s1);
+	if (lp != NULL)
+		return ((char*)lp);
+	if (c == '\0')
+		return ((char*)s);
+	return (NULL);
 }

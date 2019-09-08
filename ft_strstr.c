@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/07 19:38:02 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/08 16:37:39 by mwilbur          ###   ########.fr       */
+/*   Created: 2019/09/08 16:47:01 by mwilbur           #+#    #+#             */
+/*   Updated: 2019/09/08 17:03:26 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+char *ft_strstr(const char *haystack, const char *needle)
 {
-	size_t i;
-	size_t j;
+	int i;
+	int j;
 
 	i = 0;
 	j = 0;
-	while (s1[i])
-		i++;
-	while (s2[j] && j < n)
+	while (haystack[i])
 	{
-		s1[i] = s2[j];
-		j++;
+		while(needle[j] && haystack[i + j] == needle[j])
+			i++;
+		if (needle[j] == '\0')
+			return ((char*)&haystack[i]);
+		i++;
 	}
-	s1[i] = '\0';
-	return (s1);
+	return (0);
 }

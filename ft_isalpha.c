@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/07 19:38:02 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/08 16:37:39 by mwilbur          ###   ########.fr       */
+/*   Created: 2019/09/08 15:41:27 by mwilbur           #+#    #+#             */
+/*   Updated: 2019/09/08 15:50:40 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+static int	ft_isupper(int c)
 {
-	size_t i;
-	size_t j;
+	return (c >= 65 && c <= 90);
+}
 
-	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	while (s2[j] && j < n)
-	{
-		s1[i] = s2[j];
-		j++;
-	}
-	s1[i] = '\0';
-	return (s1);
+static int	ft_islower(int c)
+{
+	return (c >= 97 && c <= 122);
+}
+
+int			ft_isalpha(int c)
+{
+	return (ft_isupper(c) || ft_islower(c));
 }

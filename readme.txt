@@ -1,8 +1,8 @@
 Part I
 •
 •
-•
-• memccpy
+• memcpy (Необходима доделать)
+• memccpy (Необходимо доделать)
 • memmove
 • memchr
 • memcmp
@@ -12,21 +12,18 @@ Part I
 •
 •
 •
-• strlcat
-• strchr
-• strrchr
-• strstr
+• strlcat (Необходимо доделать)
+• 
+• 
+• strstr (Необходимо разобраться и выполнить проверку)
 • strnstr
-• strcmp
-• strncmp
-• atoi
-• isalpha
-• isdigit
-• isalnum
-• isascii
-• isprint
-• toupper
-• tolower
-
-Part II
-void * ft_memalloc(size_t size);
+• 
+• 
+• 
+• 
+•
+• 
+• 
+•
+•
+•

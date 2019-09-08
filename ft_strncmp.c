@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/07 19:38:02 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/08 16:37:39 by mwilbur          ###   ########.fr       */
+/*   Created: 2019/09/08 17:05:46 by mwilbur           #+#    #+#             */
+/*   Updated: 2019/09/08 17:21:29 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t i;
-	size_t j;
 
 	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	while (s2[j] && j < n)
+	if (n == 0)
+		return (0);
+	while (s1[i] && s2[i] && i < n)
 	{
-		s1[i] = s2[j];
-		j++;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
-	s1[i] = '\0';
-	return (s1);
+	if ((!s1[i] && s2[i]) || (s1[i] && !s2[i]))
+		return (s1[i] - s2[i]);
+	return (0);
 }
