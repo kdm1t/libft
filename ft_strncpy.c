@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 17:54:31 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/07 18:17:38 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/09 19:23:50 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	while (i < len)
 	{
 		dst[i] = '\0';
+		i++;
 	}
 	return (dst);
 }

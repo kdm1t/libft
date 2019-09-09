@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 19:38:02 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/08 16:37:39 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/09 18:29:42 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 	while (s2[j] && j < n)
 	{
 		s1[i] = s2[j];
+		i++;
 		j++;
 	}
 	s1[i] = '\0';

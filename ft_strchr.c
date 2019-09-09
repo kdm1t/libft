@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 17:28:54 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/08 17:35:24 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/09 17:57:59 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ char	*ft_strchr(const char *s, int c)
 			return ((char*)s);
 		s++;
 	}
+	if (c == '\0')
+		return ((char*)s);
 	return (NULL);
 }

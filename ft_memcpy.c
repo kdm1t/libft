@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 17:01:29 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/08 16:17:58 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/09 18:12:56 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char	*d;
 
 	d = (unsigned char*)dst;
-	s = (unsigned char*)s;
+	s = (unsigned char*)src;
 	i = 0;
-	while (i < n && d[i] && s[i])
+	while (i < n)
 	{
 		d[i] = s[i];
 		i++;

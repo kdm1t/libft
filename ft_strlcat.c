@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 16:31:15 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/08 16:40:29 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/09 19:22:17 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	i = 0;
 	j = 0;
-	while(dst[i])
+	while (dst[i])
 		i++;
-	while(src[j] && j < size)
+	while (src[j] && j < size)
 	{
 		dst[i] = src[j];
 		i++;
 		j++;
 	}
 	dst[i] = '\0';
-	return (ft_strlen(dst) + ft_strlen(src));
+	return (ft_strlen(dst));
 }
