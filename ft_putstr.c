@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 16:27:42 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/13 15:38:51 by mwilbur          ###   ########.fr       */
+/*   Created: 2019/09/13 20:02:24 by mwilbur           #+#    #+#             */
+/*   Updated: 2019/09/13 20:03:53 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	ft_putstr(char const *s)
 {
-	if (!*ap || !ap)
-		return ;
-	free(*ap);
-	*ap = NULL;
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar(s[i]);
+		i++;
+	}
 }

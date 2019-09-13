@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/10 16:27:42 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/13 15:38:51 by mwilbur          ###   ########.fr       */
+/*   Created: 2019/09/13 15:36:56 by mwilbur           #+#    #+#             */
+/*   Updated: 2019/09/13 15:49:14 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memdel(void **ap)
+void	ft_strdel(char **as)
 {
-	if (!*ap || !ap)
-		return ;
-	free(*ap);
-	*ap = NULL;
+	ft_memdel((void*)as);
 }
