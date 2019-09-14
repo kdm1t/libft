@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 20:49:32 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/14 19:24:44 by mwilbur          ###   ########.fr       */
+/*   Created: 2019/09/14 19:26:24 by mwilbur           #+#    #+#             */
+/*   Updated: 2019/09/14 19:35:14 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char	*src;
-	char	*dst;
-	int		end;
-	int		counter;
+	char *dst;
+	char *src;
 
-	if (!s)
-		return (NULL);
-	counter = 0;
+	dst = ft_strnew(len + 1);
 	src = (char*)s;
-	end = ft_strlen(src);
-	dst = (char*)malloc(sizeof(char) * (end + 1));
-	if (!dst)
+	if (!dst || !src)
 		return (NULL);
-	while (*src && (*src == ' ' || *src == '\n' || *src == '\t'))
-	{
-		src++;
-		counter++;
-	}
-	end--;
-	while (end > 0 && (src[end] == ' ' || src[end] == '\n' || src[end] == '\t'))
-		end--;
-	dst = memcpy(dst, src, end - counter);
+	dst = ft_strncpy(dst, &s[start], len);
 	return (dst);
 }
