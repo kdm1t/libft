@@ -2,7 +2,7 @@ ft_memset:     [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_bzero:      [OK] [OK] [OK] [OK] 
 ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_memccpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-ft_memmove:    [OK] [CRASH] [OK] [OK] [FAILED] [OK] [OK] [CRASH] [CRASH] [OK] [OK] [CRASH] [CRASH] [OK] 
+ft_memmove:    [OK] [CRASH] [OK] [OK] [FAILED] [OK] [OK] [OK] [CRASH] [OK] [OK] [CRASH] [CRASH] [OK] 
 [crash]: your memmove's return is false/does not work with basic input
 Test code:
 	char *src = "thanks to @apellicc for this test !\r\n";
@@ -39,21 +39,8 @@ Test code:
 
 Diffs:
      memmove: |thithiß ßޭ��triñg will be øvérlapéd !
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�|
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA?|
   ft_memmove: |thithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithithi|
-
-[crash]: your memmove does not work with a 128Mo data input !
-Test code:
-	int size = 128 * 1024 * 1024;
-	char *dst = (char *)malloc(sizeof(char) * size);
-	char *data = (char *)malloc(sizeof(char) * size);
-
-	__builtin___memset_chk (data, 'A', size, __builtin_object_size (data, 0));
-	if (!dst)
-		exit(TEST_INVISIBLE);
-	ft_memmove(dst, data, size);
-	exit(TEST_SUCCESS);
-
 
 [crash]: your memmove crash because it read too many bytes or attempt to read on dst !
 Test code:
@@ -140,35 +127,7 @@ Diffs:
 ft_strnstr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [KO] [KO] [OK] 
-[KO]: your atoi does not work with over long max value
-Test code:
-	char n[40] = "99999999999999999999999999";
-	int i1 = atoi(n);
-	int i2 = ft_atoi(n);
-
-	if (i1 == i2)
-		exit(TEST_SUCCESS);
-	exit(TEST_KO);
-
-Diffs:
-        atoi: |-1|
-     ft_atoi: |-469762049|
-
-[KO]: your atoi does not work with over long min value
-Test code:
-	char n[40] = "-99999999999999999999999999";
-	int i1 = atoi(n);
-	int i2 = ft_atoi(n);
-
-	if (i1 == i2)
-		exit(TEST_SUCCESS);
-	exit(TEST_KO);
-
-Diffs:
-        atoi: |0|
-     ft_atoi: |469762049|
-
+ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_isalpha:    [OK] 
 ft_isdigit:    [OK] 
 ft_isalnum:    [OK] 
@@ -240,7 +199,7 @@ Diffs:
      strtrim: |Hello 	  Please
  Trim me !|
   ft_strtrim: |Hello 	  Please
- Trim me mmove: |
+ Trim me thithit|
 
 [crash]: your strtrim does not work with full blank input
 Test code:
@@ -327,7 +286,7 @@ Diffs:
    
  
  		
- AAAAAAAAAAAAAAAAAA|
+ AAAAAAAAAAAAAAAAAAhithithi|
 
 ft_strsplit:   [MISSING]
 ft_itoa:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 

@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/07 19:49:05 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/16 17:58:54 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/16 19:35:13 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static int	ft_ignorespaces(const char *str)
 
 int			ft_atoi(const char *str)
 {
-	int		i;
-	int		result;
-	char	sign;
+	int				i;
+	unsigned long	result;
+	char			sign;
 
 	i = 0;
 	result = 0;
@@ -43,11 +43,14 @@ int			ft_atoi(const char *str)
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
 		result *= 10;
-		if (sign == '+')
 			result += (str[i] - '0');
-		if (sign == '-')
-			result -= (str[i] - '0');
 		i++;
 	}
-	return (result);
+	if (result > 9223372036854775808ULL && sign == '-')
+		return (0);
+	if (result > 9223372036854775807ULL && sign == '+')
+		return (-1);
+		if (sign == '-')
+			return ((int)result * -1);
+	return ((int)result);
 }
