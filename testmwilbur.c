@@ -4,6 +4,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include "libft.h"
 
 int		main(void)
@@ -85,8 +86,47 @@ int		main(void)
 	// long lb = strlcat(first1, second2, size);
 	// printf("result = %lu", lb);
 
-	char n[40] = "99999999999999999999999999";
-	printf("My function = %d\nLib function = %d\n", ft_atoi(n), atoi(n));
+	// char n[40] = "99999999999999999999999999";
+	// printf("My function = %d\nLib function = %d\n", ft_atoi(n), atoi(n));
+
+	// char *data = "Hello, I'm a data";
+	// t_list *l = ft_lstnew(data, strlen(data) + 1);
+	// if (!ft_strcmp(data, l->content))
+	// {
+	// 	free(l->content);
+	// 	free(l);
+	// 	printf("test success\n");
+	// }
+	// else
+	// 	printf("shit\n");
+
+	// char *s1 = "   \t  \n\n \t\t  \n\n\nHello \t  Please\n Trim me !\n   \n \n \t\t\n  ";
+	// char *s2 = "Hello \t  Please\n Trim me !";
+	// char *ret = ft_strtrim(s1);
+	// if (!ft_strcmp(ret, s2))
+	// {
+	// 	printf("Test success\n");
+	// 	printf("first = %s\n", ret);
+	// 	printf("second = %s\n", s2);
+	// }
+	// else
+	// {
+	// 	printf("first = %s\n", ret);
+	// 	printf("second = %s\n", s2);
+	// 	printf("test failed\n");
+	// }
+
+	// char *str = "Hello world!";
+	// char delimiter = 0;
+	// // char **result = ft_strsplit(str, delimiter);
+	// // int i = 0;
+	// printf("string = %s; delimiter = %c\n", str, delimiter);
+	// // while (result[i])
+	// // {
+	// // 	printf("%d. string = %s\n", i, result[i]);
+	// // 	i++;
+	// // }
+	// printf("count = %d\n", ft_wordscounter(str, delimiter));
 
 	return (0);
 }

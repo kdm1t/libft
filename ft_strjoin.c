@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 20:49:32 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/17 15:26:26 by mwilbur          ###   ########.fr       */
+/*   Created: 2019/09/17 14:25:20 by mwilbur           #+#    #+#             */
+/*   Updated: 2019/09/17 14:29:02 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*src;
-	char	*end;
+	char	*str;
+	int		len;
 
-	if (!s)
-		return (NULL);
-	src = (char*)s;
-	while (*src == ' ' || *src == '\n' || *src == '\t')
-		src++;
-	if (*src == '\0')
-		return (ft_strnew(0));
-	end = &src[ft_strlen(src) - 1];
-	while (*end == ' ' || *end == '\n' || *end == '\t')
-		end--;
-	return (ft_strsub(src, 0, end - src + 1));
+	str = NULL;
+	if (s1 && s2)
+	{
+		len = ft_strlen(s1) + ft_strlen(s2) + 1;
+		str = ft_strnew(len);
+		if (str)
+		{
+			ft_strcpy(str, s1);
+			ft_strlcat(str, s2, len);
+		}
+	}
+	return (str);
 }

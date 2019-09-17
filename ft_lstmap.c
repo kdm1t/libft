@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 20:49:32 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/17 15:26:26 by mwilbur          ###   ########.fr       */
+/*   Created: 2019/09/17 15:43:51 by mwilbur           #+#    #+#             */
+/*   Updated: 2019/09/17 15:53:28 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char	*src;
-	char	*end;
+	t_list *new_elem;
 
-	if (!s)
+	if (!lst)
 		return (NULL);
-	src = (char*)s;
-	while (*src == ' ' || *src == '\n' || *src == '\t')
-		src++;
-	if (*src == '\0')
-		return (ft_strnew(0));
-	end = &src[ft_strlen(src) - 1];
-	while (*end == ' ' || *end == '\n' || *end == '\t')
-		end--;
-	return (ft_strsub(src, 0, end - src + 1));
+	new_elem = f(lst);
+	new_elem->next = ft_lstmap(lst->next, f);
+	return (new_elem);
 }

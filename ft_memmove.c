@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 18:57:28 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/10 15:01:10 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/17 14:21:56 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,23 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	i = 0;
 	d = (unsigned char*)dst;
 	s = (unsigned char*)src;
-	while (i < len)
+	if (s < d)
 	{
-		d[i] = s[i];
-		i++;
+		i = 1;
+		while (i <= len)
+		{
+			d[len - i] = s[len - i];
+			i++;
+		}
 	}
-	d[i] = '\0';
+	else if (s > d)
+	{
+		while (i < len)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+
 	return (dst);
 }

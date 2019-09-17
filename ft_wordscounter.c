@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_wordscounter.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 20:49:32 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/17 15:26:26 by mwilbur          ###   ########.fr       */
+/*   Created: 2019/09/17 17:00:02 by mwilbur           #+#    #+#             */
+/*   Updated: 2019/09/17 17:13:52 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s)
+int		ft_wordscounter(char const *str, char delimiter)
 {
-	char	*src;
-	char	*end;
+	int i;
+	int flag;
+	int counter;
 
-	if (!s)
-		return (NULL);
-	src = (char*)s;
-	while (*src == ' ' || *src == '\n' || *src == '\t')
-		src++;
-	if (*src == '\0')
-		return (ft_strnew(0));
-	end = &src[ft_strlen(src) - 1];
-	while (*end == ' ' || *end == '\n' || *end == '\t')
-		end--;
-	return (ft_strsub(src, 0, end - src + 1));
+	i = 0;
+	flag = 0;
+	counter = 0;
+	if (!str || !delimiter)
+		return (0);
+	while (str[i] == delimiter)
+		i++;
+	if (str[i] == '\0')
+		return (0);
+	while (str[i])
+	{
+		if (!flag && str[i] != delimiter)
+		{
+			flag = 1;
+			counter++;
+		}
+		else if (str[i] == delimiter && flag)
+			flag = 0;
+		i++;
+	}
+	return (counter);
 }
