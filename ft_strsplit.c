@@ -19,7 +19,7 @@ static int	ft_strlen_delimiter(char **s, char c)
 	counter = 0;
 	if (!s || !c)
 		return (0);
-	while (**s == c)
+	while (*(*s) == c)
 		(*s)++;
 	while ((*s)[counter] && (*s)[counter] != c)
 		counter++;
@@ -45,21 +45,24 @@ static char	*ft_strcpy_delimiter(char *dst, char *src, char c)
 char		**ft_strsplit(char const *s, char c)
 {
 	int i;
+	int wordscounter;
 	char *str;
 	char **array = NULL;
 
 	if (!s)
 		return (NULL);
 	i = 0;
+	wordscounter = ft_wordscounter(s, c);
 	str = (char*)s;
-	array = (char**)ft_memalloc(sizeof(char*) * (ft_wordscounter(s, c) + 1));
+	array = (char**)ft_memalloc(sizeof(char*) * (wordscounter + 1));
 	if (!array)
 		return (NULL);
-	while (array[i])
+	while (i < wordscounter)
 	{
 		array[i] = ft_strnew(ft_strlen_delimiter(&str, c));
 		array[i] = ft_strcpy_delimiter(array[i], str, c);
 		i++;
 	}
+	array[i] = '\0';
 	return (array);
 }
