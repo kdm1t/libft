@@ -40,8 +40,8 @@ ft_strnequ:    [OK] [OK] [OK] [OK] {not protected}
 ft_strsub:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
-ft_strsplit:   [CRASH] [CRASH] [CRASH] [CRASH] [OK] [CRASH] [CRASH] [CRASH] [CRASH] {protected}
-[crash]: your strsplit does not work with basic input
+ft_strsplit:   [FAILED] [OK] [FAILED] [FAILED] [OK] [OK] [OK] [OK] [OK] {protected}
+[fail]: your strsplit does not work with basic input
 Test code:
 	char *string = "      split       this for   me  !       ";
 	char **expected = ((char*[6]){"split", "this", "for", "me", "!", ((void *)0)});
@@ -49,86 +49,31 @@ Test code:
 
 	split_cmp_array(expected, result);
 
+Diffs:
+    strsplit: |split|
+ ft_strsplit: |(null)|
 
-[crash]: your strsplit does not work with full space string
-Test code:
-	char **expected = ((char*[1]){((void *)0)});
-	char *string = "                  ";
-	char **result = ft_strsplit(string, ' ');
-
-	split_cmp_array(expected, result);
-
-
-[crash]: your strsplit does not work with one word
+[fail]: your strsplit does not work with one word
 Test code:
 	char *s = "                  olol";
 	char **result = ft_strsplit(s, ' ');
 
 	split_cmp_array(expected, result);
 
+Diffs:
+    strsplit: |olol|
+ ft_strsplit: |(null)|
 
-[crash]: your strsplit does not work with one word
+[fail]: your strsplit does not work with one word
 Test code:
 	char *s = "olol                     ";
 	char **result = ft_strsplit(s, ' ');
 
 	split_cmp_array(expected, result);
 
-
-[crash]: your strsplit does not work with full string
-Test code:
-	char *s = "0 0 0 0 0 0 0 0 0";
-	char **result = ft_strsplit(s, ' ');
-
-	split_cmp_array(expected, result);
-
-
-[crash]: your strsplit does not work with basic input
-Test code:
-	char *s = "split  ||this|for|me|||||!|";
-	int i = 0;
-	char **result = ft_strsplit(s, '|');
-
-	while (result[i])
-	{
-		if (strcmp(result[i], *expected))
-		{
-			exit(TEST_FAILED);
-		}
-		free(result[i]);
-		i++;
-		expected++;
-	}
-	free(result);
-	exit(TEST_SUCCESS);
-
-
-[crash]: you did not protect your strsplit
-Test code:
-	char *s = "      split       this for   me  !       ";
-
-	char **result = ft_strsplit(s, ' ');
-	if (!result)
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-
-[crash]: your strsplit does not work with basic input
-Test code:
-	char *s = "      split       this for   me  !       ";
-
-	char **result = ft_strsplit(s, ' ');
-	while (*result)
-	{
-		if (strcmp(*result, *expected))
-		{
-			exit(TEST_FAILED);
-		}
-		result++;
-		expected++;
-	}
-	exit(TEST_SUCCESS);
-
+Diffs:
+    strsplit: |olol|
+ ft_strsplit: |(null)|
 
 ft_itoa:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_putchar:    [OK] [OK] [KO] 
