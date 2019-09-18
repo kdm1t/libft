@@ -6,7 +6,7 @@
 #    By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/09 14:54:28 by mwilbur           #+#    #+#              #
-#    Updated: 2019/09/17 16:24:14 by mwilbur          ###   ########.fr        #
+#    Updated: 2019/09/18 16:36:20 by mwilbur          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRCS=ft_atoi.c \
 		ft_strstr.c \
 		ft_strsub.c  \
 		ft_strtrim.c \
+		ft_wordscounter.c \
 		ft_strsplit.c \
 		ft_tolower.c \
 		ft_toupper.c
@@ -129,6 +130,7 @@ OBJECTS=ft_atoi.o \
 		ft_strstr.o \
 		ft_strsub.o \
 		ft_strtrim.o \
+		ft_wordscounter.o \
 		ft_strsplit.o \
 		ft_tolower.o \
 		ft_toupper.o

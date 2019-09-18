@@ -128,5 +128,29 @@ int		main(void)
 	// // }
 	// printf("count = %d\n", ft_wordscounter(str, delimiter));
 
+	// char *str = "                               \n";
+	// char delimiter = ' ';
+	// printf("STRING = %s\nDELIMITER = %c\nFT_WORDSCOUNTER = %d", str, delimiter, ft_wordscounter(str, delimiter));
+
+	// printf("max size of size_t = %llu\n", SIZE_MAX);
+	// printf("ft_atoi = %d\n", ft_atoi("184467440737095516151221"));
+	// printf("atoi = %d\n", atoi("184467440737095516151221"));
+
+
+	// int counter;
+	// char *s = "***********Hello***wrodl**";
+	// char c = '*';
+	// counter = 0;
+	// printf("old str = %s\n", s);
+	// while (*s == c)
+	// 	s++;
+	// while (*s && *s != c)
+	// {
+	// 	s++;
+	// 	counter++;
+	// }
+	// printf("new str = %s\ncharacters = %d\n", s, counter);
+
+
 	return (0);
 }
