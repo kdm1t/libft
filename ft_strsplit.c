@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 16:24:30 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/18 17:47:30 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/19 17:30:09 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,17 @@ static int	ft_strlen_delimiter(char **s, char c)
 	return (counter);
 }
 
-static char	*ft_strcpy_delimiter(char *dst, char *src, char c)
+static char	*ft_strcpy_delimiter(char *dst, char **src, char c)
 {
 	int i;
 
 	i = 0;
-	while (src[i] == c)
-		i++;
-	while (src[i] && src[i] != c)
+	while (**src == c)
+		(*src)++;
+	while (**src && **src != c)
 	{
-		dst[i] = src[i];
+		dst[i] = **src;
+		(*src)++;
 		i++;
 	}
 	dst[i] = '\0';
@@ -44,10 +45,10 @@ static char	*ft_strcpy_delimiter(char *dst, char *src, char c)
 
 char		**ft_strsplit(char const *s, char c)
 {
-	int i;
-	int wordscounter;
-	char *str;
-	char **array = NULL;
+	int		i;
+	int		wordscounter;
+	char	*str;
+	char	**array;
 
 	if (!s)
 		return (NULL);
@@ -60,9 +61,9 @@ char		**ft_strsplit(char const *s, char c)
 	while (i < wordscounter)
 	{
 		array[i] = ft_strnew(ft_strlen_delimiter(&str, c));
-		array[i] = ft_strcpy_delimiter(array[i], str, c);
+		array[i] = ft_strcpy_delimiter(array[i], &str, c);
 		i++;
 	}
-	array[i] = '\0';
+	array[i] = NULL;
 	return (array);
 }
