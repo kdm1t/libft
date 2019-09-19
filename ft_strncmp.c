@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/08 17:05:46 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/09 17:34:27 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/19 18:17:36 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	second = (unsigned char*)s2;
 	if (n == 0)
 		return (0);
-	while (first[i] && second[i] && i < n)
-	{
-		if (first[i] != second[i])
-			return (first[i] - second[i]);
+	while (first[i] && second[i] && first[i] == second[i] && i < n - 1)
 		i++;
-	}
-	if ((!first[i] && second[i]) || (first[i] && !second[i]))
-		return (first[i] - second[i]);
+	return (first[i] - second[i]);
 	return (0);
 }

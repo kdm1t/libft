@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 15:59:01 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/13 16:05:17 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/19 19:29:11 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@ void	ft_striter(char *s, void (*f)(char *))
 {
 	int i;
 
+	if (!s || !f)
+		return ;
 	i = 0;
 	while (s[i])
 	{

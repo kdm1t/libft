@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 16:27:42 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/13 15:38:51 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/19 19:17:58 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_memdel(void **ap)
 {
-	if (!*ap || !ap)
-		return ;
-	free(*ap);
-	*ap = NULL;
+	if (*ap && ap)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

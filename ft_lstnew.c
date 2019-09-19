@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 15:55:06 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/17 14:15:01 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/19 17:24:39 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ t_list	*ft_lstnew(void	const *content, size_t content_size)
 	t_list *list;
 
 	list = (t_list*)ft_memalloc(sizeof(t_list));
-	// list = (t_list*)malloc(sizeof(t_list));
 	if (!list)
 		return (NULL);
 	if (!content)

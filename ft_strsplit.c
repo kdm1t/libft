@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 16:24:30 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/19 17:30:09 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/19 21:01:20 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,26 @@ static char	*ft_strcpy_delimiter(char *dst, char **src, char c)
 	return (dst);
 }
 
+static char	*ft_strnew_with_check(char **ptr, size_t size)
+{
+	char	*str;
+	int		i;
+
+	i = 0;
+	str = (char*)ft_memalloc(sizeof(char) * (size + 1));
+	if (!str)
+	{
+		while (ptr[i])
+		{
+			free(ptr[i]);
+			i++;
+		}
+		free(ptr);
+		return (NULL);
+	}
+	return (str);
+}
+
 char		**ft_strsplit(char const *s, char c)
 {
 	int		i;
@@ -60,7 +80,7 @@ char		**ft_strsplit(char const *s, char c)
 		return (NULL);
 	while (i < wordscounter)
 	{
-		array[i] = ft_strnew(ft_strlen_delimiter(&str, c));
+		array[i] = ft_strnew_with_check(array, ft_strlen_delimiter(&str, c));
 		array[i] = ft_strcpy_delimiter(array[i], &str, c);
 		i++;
 	}

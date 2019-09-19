@@ -6,7 +6,7 @@
 /*   By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 18:57:28 by mwilbur           #+#    #+#             */
-/*   Updated: 2019/09/17 14:21:56 by mwilbur          ###   ########.fr       */
+/*   Updated: 2019/09/19 17:25:11 by mwilbur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,5 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			i++;
 		}
 	}
-
 	return (dst);
 }
