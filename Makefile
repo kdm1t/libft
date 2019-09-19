@@ -6,7 +6,7 @@
 #    By: mwilbur <mwilbur@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/09 14:54:28 by mwilbur           #+#    #+#              #
-#    Updated: 2019/09/19 20:43:45 by mwilbur          ###   ########.fr        #
+#    Updated: 2019/09/19 22:00:23 by mwilbur          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,9 @@ SRCS=ft_atoi.c \
 		ft_wordscounter.c \
 		ft_strsplit.c \
 		ft_tolower.c \
-		ft_toupper.c
+		ft_toupper.c \
+		ft_printbits.c \
+		ft_swap.c
 
 OBJECTS=ft_atoi.o \
 		ft_bzero.o \
@@ -133,7 +135,9 @@ OBJECTS=ft_atoi.o \
 		ft_wordscounter.o \
 		ft_strsplit.o \
 		ft_tolower.o \
-		ft_toupper.o
+		ft_toupper.o \
+		ft_printbits.o \
+	    ft_swap.o	
 
 HEADER=libft.h
 FLAGS=-Wall -Wextra -Werror
